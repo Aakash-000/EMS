@@ -49,9 +49,13 @@ const RatingandReviewPage = (props) => {
     const Year = date.getFullYear();
     const Month = date.getMonth()+1;
     const Day = date.getDate();
-    const todaysdate = `${Year}-0${Month}-${Day}`
-    const yesterdaysdate = `${Year}-${Month}-${Day-1}`
-    const backdate = `${Year}-${Month}-${Day-2}`
+    const todaysdate = `${Year}-${Month}-0${Day}`.toString()
+    const yesterdaysdate = `${Year}-${Month}-0${parseInt(Day)-1}`.toString()
+    const backdate = `${Year}-${Month}-0${parseInt(Day)-2}`.toString()
+
+    console.log(yesterdaysdate)
+    console.log(todaysdate)
+    console.log(backdate)
 
     React.useEffect(()=>{
         let val = true;
@@ -96,12 +100,20 @@ const RatingandReviewPage = (props) => {
         }
       }
       console.log(dates)
-      
 
+      function getResult(){
+        for(let i of dates){
+          if( i === todaysdate || i === yesterdaysdate || i === backdate){
+            return true
+          }
+        }
+        return false
+      }
+      console.log(getResult())
   return (
     <ThemeProvider theme={theme}>
     <Container disableGutters maxWidth={'xl'}>
-        {(state.logstate == "CLIENT" && (dates.includes(todaysdate || yesterdaysdate || backdate)) )&& (
+        {(state.logstate == "CLIENT" && getResult() ) ?(
         <form onSubmit={handleRate}>
         <Box
         sx={{
@@ -127,7 +139,7 @@ const RatingandReviewPage = (props) => {
       }}>Submit</Button>
       </Box>
       </form>
-      )}
+      ):""}
     </Container>
     </ThemeProvider>
   )

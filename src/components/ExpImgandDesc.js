@@ -169,6 +169,7 @@ const DetailDescription = (props)=> {
       <Typography sx={{fontSize:"30px",fontWeight:"800"}}>{venueDetail.venueName}</Typography>
       <Typography sx={{fontSize:"25px",fontWeight:"700"}}>{venueDetail.userName}</Typography>
       <Typography sx={{fontSize:"21px",fontWeight:"700"}}>{venueDetail.city_name}</Typography>
+      <Typography sx={{fontSize:"21px",fontWeight:"700"}}>{venueDetail.capacity}</Typography>
       <Container disableGutters sx={{display:'flex',flexDirection:'row',alignItems:"flex-start"}}>
         <Container  disableGutters sx={{display:'flex',flexDirection:'column'}}>
         <Typography sx={{fontSize:"18px",fontWeight:"700",

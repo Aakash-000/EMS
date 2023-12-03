@@ -172,7 +172,7 @@ const TableContent = (props)=> {
               {row?.recipeMenu+","} 
               </span> 
               : 
-              props.type == "ADMIN" ? row.citizenShipNo : " "}
+              props.type == "ADMIN" ? " ": ""}
               </TableCell>
               <TableCell className="tableCell">
               {props.type == "VENUE" ? row.preference: props.type == "ADMIN" ? row.mobile_no : " "}

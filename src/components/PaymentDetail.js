@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import {eventNames} from './EventArray'
 import SnackbarComponent from './SnackbarComponent';
 import DatePickerComponent from './DatePickerComponent';
+import { InsertPageBreak } from '@mui/icons-material';
 
 
 const RoleDropdown = styled(TextField)`
@@ -325,9 +326,13 @@ React.useEffect(()=>{
         setOpen((prevValue) => prevValue = true)
         console.log(response)
     }catch(error){
+      if(error){
+        alert("Capacity Exceeded!")
+      }else{
       console.log(error)
       setvalid((prevValue) => prevValue = false)
       setOpen((prevValue) => prevValue = true)
+      }
     }
     console.log({...bookingDetail,bookingDate:$d,...dropdownValues})
     }
